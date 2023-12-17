@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Лев Толстой – зеркало русской революции.
+{% endblock %}
+
+{% block content-group-title-description %}
+    {%comment%}<h1>Лев Толстой – зеркало русской революции.</h1>{%endcomment%}
+    <h1>{{group.title}}</h1>
+    {%comment%}<p>Группа тайных поклонников графа.</p>{%endcomment%}
+    <p>{{group.description}}</p>
+{% endblock %}
+
+{% block db %}
+    {% for post in posts %}
+        <article>
+            <ul>
+                <li>
+                    Автор: {{ post.author.get_full_name }}
+                </li>
+                <li>
+                    Дата публикации: {{ post.pub_date}}
+                </li>
+
+            </ul>
+            <p>{{ post.text }}</p>
+            <a href="">все записи группы</a>
+            {% if not forloop.last %}<hr>{% endif %}
+        </article>
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block ref %}
+{% endblock %}
+
+{% block ref1 %}
+{% endblock %}
+
+{% block ref2 %}
+{% endblock %}
+

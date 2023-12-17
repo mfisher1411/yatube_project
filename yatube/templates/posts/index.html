@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Последние обновления на сайте
+{% endblock %}
+
+{% block db %}
+    {% for post in posts %}
+        <article>
+            <ul>
+                <li>
+                    Автор: {{ post.author.get_full_name }}
+                </li>
+                <li>
+                    Дата публикации: {{ post.pub_date}}
+                </li>
+
+            </ul>
+            <p>{{ post.text }}</p>
+            <a href="">все записи группы</a>
+            {% if not forloop.last %}<hr>{% endif %}
+        </article>
+    {% endfor %}
+{% endblock %}
+
+{% block content-index-last-update %}
+    <h1>Последние обновления на сайте</h1>
+{% endblock %}
+
+{% block ref %}
+    <a href="groups_list.html">все записи группы</a>
+{%  endblock %}
+
+{% block ref1 %}
+    <a href="groups_list.html">все записи группы</a>
+{%  endblock %}
+
+{% block ref2 %}
+    <a href="groups_list.html">все записи группы</a>
+{%  endblock %}
